@@ -13,6 +13,11 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin','middleware'=>'adminmiddl
     Route::group(['prefix' => 'location'], function (){
         Route::get('','AdminLocationController@index')->name('admin.get.location.list');
     });
+    Route::group(['prefix' => 'motel'], function (){
+        Route::get('','AdminMotelController@index')->name('admin.get.motel.list');
+        Route::get('create','AdminMotelController@create')->name('admin.get.motel.create');
+        Route::post('create','AdminMotelController@store');
+    });
 });
 
 Route::get('thongke','AdminController@getThongke');

@@ -27,6 +27,11 @@ class AdminSidebarListService
             'route' => 'admin.get.location.list',
             'icon'  => 'icon-location3',
         ],
+        [
+            'name'  => 'Motel',
+            'route' => 'admin.get.motel.list',
+            'icon'  => 'icon-clipboard4',
+        ],
     ];
 
     public function getListSidebar()
