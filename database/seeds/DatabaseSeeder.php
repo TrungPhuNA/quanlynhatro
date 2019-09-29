@@ -42,6 +42,7 @@ class CategoriesSeeder extends Seeder
                'email'    => 'phupt.admin94@gmail.com',
                'password' => '$2y$10$5Q2ETzpM2Q0W3WcFaR1Fpef9dbtaIf9WCm2FSrTIlJS4qklJAW2bO',
                'phone'    => '0986420994',
+               'right'    => 1,
            ]
         ]);
     }

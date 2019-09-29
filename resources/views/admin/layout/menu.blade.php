@@ -29,8 +29,6 @@
 								<li><a href="admin/report"><i class="icon-bubble-notification"></i><span> Báo cáo nội dung</span></a></li>
 								<li><a href="admin/thongke"><i class="icon-pie-chart8"></i><span> Thống kê</span></a></li>
 								<li><a href=""><i class="icon-home2"></i><span> Xem Trang chủ</span></a></li>
-								
-								
 								<!-- /page kits -->
 
 							</ul>
