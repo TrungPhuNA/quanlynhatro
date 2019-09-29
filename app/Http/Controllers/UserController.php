@@ -145,21 +145,19 @@ class UserController extends Controller
 
          $request->validate([
             'txttitle' => 'required',
-            'txtaddress' => 'required',
+            // 'txtaddress' => 'required',
             'txtprice' => 'required',
             'txtarea' => 'required',
             'txtphone' => 'required',
             'txtdescription' => 'required',
-            'txtaddress' => 'required',
          ],
          [  
             'txttitle.required' => 'Nhập tiêu đề bài đăng',
-            'txtaddress.required' => 'Nhập địa chỉ phòng trọ',
+            // 'txtaddress.required' => 'Nhập địa chỉ phòng trọ',
             'txtprice.required' => 'Nhập giá thuê phòng trọ',
             'txtarea.required' => 'Nhập diện tích phòng trọ',
             'txtphone.required' => 'Nhập SĐT chủ phòng trọ (cần liên hệ)',
             'txtdescription.required' => 'Nhập mô tả ngắn cho phòng trọ',
-            'txtaddress.required' => 'Nhập hoặc chọn địa chỉ phòng trọ trên bản đồ'
          ]);
         
          /* Check file */ 

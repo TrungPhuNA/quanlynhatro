@@ -10,24 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\User;
-use App\District;
 use App\Categories;
 use App\Motelroom;
-Route::get('/', function () {
-	$district = District::all();
-    $categories = Categories::all();
-    $hot_motelroom = Motelroom::where('approve',1)->limit(6)->orderBy('count_view','desc')->get();
-    $map_motelroom = Motelroom::where('approve',1)->get();
-	$listmotelroom = Motelroom::where('approve',1)->paginate(4);
-    return view('home.index',[
-    	'district'=>$district,
-        'categories'=>$categories,
-        'hot_motelroom'=>$hot_motelroom,
-    	'map_motelroom'=>$map_motelroom,
-        'listmotelroom'=>$listmotelroom
-    ]);
-});
+
+Route::get('/','HomeController@index')->name('get.home');
+Route::get('/chi-tiet-nha-tro','MotelDetailController@motelDetail')->name('get.motel.detail');
 Route::get('category/{id}','MotelController@getMotelByCategoryId');
 /* Admin */
 Route::get('admin/login','AdminController@getLogin');
@@ -53,6 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminmiddleware'], function () {
         // Route::get('del/{id}','AdminController@DeleteUser');
     });
 });
+
 /* End Admin */
 Route::get('/phongtro/{slug}',function($slug){
     $room = Motelroom::findBySlug($slug);

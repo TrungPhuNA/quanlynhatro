@@ -42,7 +42,7 @@
 							<label>Địa chỉ phòng trọ:</label> Bạn có thể nhập hoặc chọn ví trí trên bản đồ 
 							<input type="text" id="location-text-box" name="txtaddress" class="form-control" value="" />
               <p><i class="far fa-bell"></i> Nếu địa chỉ hiển thị bên bản đồ không đúng bạn có thể điều chỉnh bằng cách kéo điểm màu xanh trên bản đồ tới vị trí chính xác.</p>
-              <input type="hidden" id="txtaddress" name="txtaddress" value=""  class="form-control"  />
+              {{--<input type="hidden" id="txtaddress" name="txtaddress" value=""  class="form-control"  />--}}
               <input type="hidden" id="txtlat" value="" name="txtlat"  class="form-control"  />
               <input type="hidden" id="txtlng"  value="" name="txtlng" class="form-control" />
             </div>
