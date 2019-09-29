@@ -13,20 +13,15 @@
 use App\Categories;
 use App\Motelroom;
 
-Route::get('/','HomeController@index')->name('get.home');
-Route::get('/chi-tiet-nha-tro','MotelDetailController@motelDetail')->name('get.motel.detail');
-Route::get('category/{id}','MotelController@getMotelByCategoryId');
-/* Admin */
+/**
+ * ADMIN
+ */
 include 'web_admin.php';
+// END
 
-/* End Admin */
-Route::get('/phongtro/{slug}',function($slug){
-    $room = Motelroom::findBySlug($slug);
-    $room->count_view = $room->count_view +1;
-    $room->save();
-    $categories = Categories::all();
-    return view('home.detail',['motelroom'=>$room, 'categories'=>$categories]);
-});
+/**
+ * USER
+ */
 Route::get('/report/{id}','MotelController@userReport')->name('user.report');
 Route::get('/motelroom/del/{id}','MotelController@user_del_motel');
 /* User */
@@ -45,6 +40,27 @@ Route::group(['prefix'=>'user'], function () {
     Route::get('profile/edit','UserController@getEditprofile')->middleware('dangtinmiddleware');
     Route::post('profile/edit','UserController@postEditprofile')->name('user.edit')->middleware('dangtinmiddleware');
 });
-/* ----*/
+/*  END----*/
+
+Route::group(['namespace' => 'Frontend'], function (){
+    Route::get('/','HomeController@index')->name('get.home');
+    // Route::group(['prefix','{slug}'], function (){
+    //
+    // })
+    Route::get('/{slug}','MenuController@index')->name('get.menu');
+    Route::get('/{slug}/{motel}','MotelDetailController@getMotelDetail')->name('get.motel.detail');
+});
+Route::get('category/{id}','MotelController@getMotelByCategoryId');
+/* Admin */
+
+/* End Admin */
+Route::get('/phongtro/{slug}',function($slug){
+    $room = Motelroom::findBySlug($slug);
+    $room->count_view = $room->count_view +1;
+    $room->save();
+    $categories = Categories::all();
+    return view('home.detail',['motelroom'=>$room, 'categories'=>$categories]);
+});
+
 
 Route::post('searchmotel','MotelController@SearchMotelAjax');

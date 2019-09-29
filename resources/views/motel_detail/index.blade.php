@@ -66,19 +66,19 @@
                                                 <tbody>
                                                 <tr>
                                                     <td class="name">Địa chỉ</td>
-                                                    <td colspan="3">207/31 Lê Văn Sỹ, Phường 13, Quận 3, Hồ Chí Minh</td>
+                                                    <td colspan="3">{{ $motel->mt_address }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="name">Loại tin rao:</td>
                                                     <td colspan="3">
-                                                        <h2 style="margin: 0;"><a href="https://phongtro123.com/cho-thue-phong-tro">Phòng trọ, nhà trọ</a></h2>
+                                                        <h2 style="margin: 0;"><a href="">{{ $menu->mn_name }}</a></h2>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="name">Mã tin</td>
-                                                    <td>#105893</td>
+                                                    <td>#{{ $motel->id }}</td>
                                                     <td class="name">Người đăng:</td>
-                                                    <td>ngo dinh thuan</td>
+                                                    <td>{{ $motel->user->name ?? 'Admin' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="name">Đối tượng:</td>
@@ -88,15 +88,15 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="name">Ngày cập nhật:</td>
-                                                    <td>27/09/2019 19:51:35</td>
+                                                    <td>{{ $motel->updated_at }}</td>
                                                     <td class="name">Diện tích:</td>
-                                                    <td><span style="color: #E74C3C; font-weight: bold;">14m²</span></td>
+                                                    <td><span style="color: #E74C3C; font-weight: bold;">{{ $motel->mt_acreage }}m²</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="name">Ngày hết hạn:</td>
                                                     <td>30/09/2019 19:51:35</td>
                                                     <td class="name">Giá cho thuê:</td>
-                                                    <td><span class="price" style="color: #E74C3C; font-weight: bold;">3.5 triệu/tháng</span></td>
+                                                    <td><span class="price" style="color: #E74C3C; font-weight: bold;">{{ number_format($motel->mt_price,0,',','.') }} triệu/tháng</span></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -107,16 +107,7 @@
                                 </div>
                                 <div id="motachitiet" class="block-content-2">
                                     <span class="block_headline">Thông tin mô tả</span>
-                                    <p>PHÒNG TRỌ - CĂN HỘ ĐẦY ĐỦ TIỆN NGHI.&nbsp;</p>
-                                    <p>CỬA SỔ</p>
-                                    <p>GIỜ GIẤC TỰ DO- KHÔNG CHUNG CHỦ.&nbsp;BẢO VỆ 24/24</p>
-                                    <p>NƯỚC NÓNG LẠNH 100000/NGƯỜI /THÁNG</p>
-                                    <p>ĐIỆN 4000kw</p>
-                                    <p>NHÀ MỚI NGAY CHỢ</p>
-                                    <p>Giá phòng 3t5</p>
-                                    <p>Hợp đồng thuê dài hạn</p>
-                                    <p>---------------------------------------------</p>
-                                    <p>☎️ Điện thoại liên hệ: <strong style="color: red;">0855936857</strong></p>
+                                    {!! $motel->mt_description !!}
                                 </div>
                                 <div id="hinhanh" class="block-photo">
                                     <div class="block-photo-title">Hình ảnh</div>

@@ -14,22 +14,6 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/base_mobile.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/base_desktop.css') }}" media="screen and (min-width:1024px)">
-    {{--<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-60724554-1');</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "https://phongtro123.com/","potentialAction": {"@type": "SearchAction","target": "https://phongtro123.com/tim-kiem?q={search_term_string}","query-input": "required name=search_term_string"}}</script>--}}
-
-    {{--<script type="text/javascript">--}}
-		{{--base_url = "https://phongtro123.com";--}}
-		{{--base_api_url = "https://phongtro123.com/api";--}}
-		{{--register_url = "https://phongtro123.com/dang-ky-tai-khoan";--}}
-		{{--login_url = "https://phongtro123.com/dang-nhap-tai-khoan";--}}
-		{{--logout_url = "https://phongtro123.com/thoat";--}}
-		{{--user_payment_addfund_url = 'https://beta.phongtro123.com/nap-tien-vao-tai-khoan';--}}
-		{{--page_tindaluu_url = 'https://beta.phongtro123.com/tin-da-luu';--}}
-		{{--page_edit_profile_url = 'https://beta.phongtro123.com/thong-tin-ca-nhan';--}}
-		{{--page_history_transaction_url = 'https://beta.phongtro123.com/lich-su-giao-dich';--}}
-		{{--page_my_post_url = 'https://beta.phongtro123.com/quan-ly-tin-dang';--}}
-		{{--page_add_post_url = 'https://beta.phongtro123.com/dang-tin';--}}
-		{{--get_district_ajax = {ajaxurl: '#'};--}}
-    {{--</script>--}}
     <style>
         #mobile_navbar_top{
             display: none;

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Motel extends Model
@@ -35,5 +36,10 @@ class Motel extends Model
     public function menu()
     {
         return $this->belongsTo(Menu::class,'mt_menu_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'mt_user_id');
     }
 }
