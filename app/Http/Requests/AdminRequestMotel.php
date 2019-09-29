@@ -24,7 +24,7 @@ class AdminRequestMotel extends FormRequest
     public function rules()
     {
         return [
-            'mt_name'        => 'required|unique:motels,mt_name,id' . $this->id,
+            'mt_name'        => 'required|unique:motels,mt_name,' . $this->id,
             'mt_address'     => 'required',
             'mt_price'       => 'required',
             'mt_acreage'     => 'required',

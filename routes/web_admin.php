@@ -17,6 +17,10 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin','middleware'=>'adminmiddl
         Route::get('','AdminMotelController@index')->name('admin.get.motel.list');
         Route::get('create','AdminMotelController@create')->name('admin.get.motel.create');
         Route::post('create','AdminMotelController@store');
+        Route::get('update/{id}','AdminMotelController@edit')->name('admin.get.motel.edit');
+        Route::post('update/{id}','AdminMotelController@update');
+        Route::get('delete/{id}','AdminMotelController@delete')->name('admin.get.motel.delete');
+        Route::get('action/{type}/{id}','AdminMotelController@action')->name('admin.get.motel.action');
     });
 });
 

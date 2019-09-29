@@ -343,7 +343,7 @@ a.bg-info:focus {
 }
 .bg-warning {
   color: #fff;
-  background-color: #FF5722;
+  background-color: #f0ad4e;
 }
 a.bg-warning:hover,
 a.bg-warning:focus {
@@ -351,7 +351,7 @@ a.bg-warning:focus {
 }
 a.bg-warning:hover,
 a.bg-warning:focus {
-  background-color: #FF5722;
+  background-color: #f0ad4e;
 }
 .bg-danger {
   color: #fff;
@@ -1868,14 +1868,14 @@ input[class*=bg-] + .form-control-feedback {
 .btn-warning:focus,
 .btn-warning.focus,
 .btn-warning:hover {
-  background-color: #FF5722;
-  border-color: #FF5722;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
 }
 .btn-warning:active,
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
-  background-color: #FF5722;
-  border-color: #FF5722;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
 }
 .btn-warning:active:hover,
 .btn-warning.active:hover,
@@ -1886,8 +1886,8 @@ input[class*=bg-] + .form-control-feedback {
 .btn-warning:active.focus,
 .btn-warning.active.focus,
 .open > .dropdown-toggle.btn-warning.focus {
-  background-color: #FF5722;
-  border-color: #FF5722;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
 }
 .btn-warning.disabled {
   -webkit-box-shadow: none;
@@ -3820,9 +3820,9 @@ li + .dropdown-header.highlight,
     background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
   }
-  .navbar-inverse .navbar-nav .open .dropdown-menu a:not(.label-flat):not(.badge-flat):not(.disabled > a) {
-    color: #fff;
-  }
+  /*.navbar-inverse .navbar-nav .open .dropdown-menu a:not(.label-flat):not(.badge-flat):not(.disabled > a) {*/
+    /*color: #fff;*/
+  /*}*/
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -5031,11 +5031,11 @@ ul.dropdown-menu .dropdown-content-heading:first-child {
   background-color: #00BCD4;
 }
 .label-warning {
-  border-color: #FF5722;
+  border-color: #f0ad4e;
 }
 .label-warning[href]:hover,
 .label-warning[href]:focus {
-  background-color: #FF5722;
+  background-color: #f0ad4e;
 }
 .label-danger {
   border-color: #F44336;
@@ -5192,8 +5192,8 @@ ul.dropdown-menu .dropdown-content-heading:first-child {
   border-color: #00BCD4;
 }
 .badge-warning {
-  background-color: #FF5722;
-  border-color: #FF5722;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
 }
 .badge-danger {
   background-color: #F44336;
@@ -6305,7 +6305,7 @@ h6.panel-title,
   border-color: #ddd;
 }
 .panel-warning.panel-bordered {
-  border-color: #FF5722;
+  border-color: #f0ad4e;
 }
 .panel-danger {
   border-color: #ddd;

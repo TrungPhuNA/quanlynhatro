@@ -30,6 +30,7 @@
                                     <th style="width: 20%">Name</th>
                                     <th style="width: 10%">Type</th>
                                     <th style="width: 40%">Description</th>
+                                    <td style="width: 10%">Active</td>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -47,6 +48,11 @@
                                             <td>
                                                 <p>{{ $motel->mt_description }}</p>
                                             </td>
+                                            <td>
+                                                <a href="{{ route('admin.get.motel.action',['success',$motel->id]) }}" class="label {{ $motel->getAttributeActive($motel->mt_active)['class'] }}">
+                                                    {{ $motel->getAttributeActive($motel->mt_active)['text'] }}
+                                                </a>
+                                            </td>
                                             <td class="text-center">
                                                 <ul class="icons-list">
                                                     <li class="dropdown">
@@ -54,8 +60,9 @@
                                                             <i class="icon-menu9"></i>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-menu-right">
-                                                            <li><a href="" class="icon-pen5">Update</a></li>
-                                                            <li><a href="" class="icon-pen5">Delete</a></li>
+                                                            <li><a href="{{ route('admin.get.motel.action', ['cancel',$motel->id]) }}"><i class="icon-pencil4"></i>Cancel</a></li>
+                                                            <li><a href="{{ route('admin.get.motel.edit', $motel->id) }}"><i class="icon-pencil4"></i>Update</a></li>
+                                                            <li><a href="{{ route('admin.get.motel.delete', $motel->id) }}"><i class="icon-bin"></i>Delete</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
