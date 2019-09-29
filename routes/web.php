@@ -17,29 +17,7 @@ Route::get('/','HomeController@index')->name('get.home');
 Route::get('/chi-tiet-nha-tro','MotelDetailController@motelDetail')->name('get.motel.detail');
 Route::get('category/{id}','MotelController@getMotelByCategoryId');
 /* Admin */
-Route::get('admin/login','AdminController@getLogin');
-Route::post('admin/login','AdminController@postLogin')->name('admin.login');
-Route::group(['prefix'=>'admin','middleware'=>'adminmiddleware'], function () {
-    Route::get('logout','AdminController@logout');
-    Route::get('','AdminController@getIndex');
-    Route::get('thongke','AdminController@getThongke');
-    Route::get('report','AdminController@getReport');
-    Route::group(['prefix'=>'users'],function(){
-        Route::get('list','AdminController@getListUser');
-        Route::get('edit/{id}','AdminController@getUpdateUser');
-        Route::post('edit/{id}','AdminController@postUpdateUser')->name('admin.user.edit');
-        Route::get('del/{id}','AdminController@DeleteUser');
-    });
-    Route::group(['prefix'=>'motelrooms'],function(){
-        Route::get('list','AdminController@getListMotel');
-        Route::get('approve/{id}','AdminController@ApproveMotelroom');
-        Route::get('unapprove/{id}','AdminController@UnApproveMotelroom');
-        Route::get('del/{id}','AdminController@DelMotelroom');
-        // Route::get('edit/{id}','AdminController@getUpdateUser');
-        // Route::post('edit/{id}','AdminController@postUpdateUser')->name('admin.user.edit');
-        // Route::get('del/{id}','AdminController@DeleteUser');
-    });
-});
+include 'web_admin.php';
 
 /* End Admin */
 Route::get('/phongtro/{slug}',function($slug){

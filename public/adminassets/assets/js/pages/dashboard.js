@@ -69,17 +69,17 @@ $(function() {
         // ------------------------------
 
         // Define main variables
-        var d3Container = d3.select(element),
-            margin = {top: 5, right: 50, bottom: 40, left: 50},
-            width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right,
-            height = height - margin.top - margin.bottom,
-            tooltipOffset = 30;
+        // var d3Container = d3.select(element),
+        //     margin = {top: 5, right: 50, bottom: 40, left: 50},
+        //     width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right,
+        //     height = height - margin.top - margin.bottom,
+        //     tooltipOffset = 30;
 
         // Tooltip
-        var tooltip = d3Container
-            .append("div")
-            .attr("class", "d3-tip e")
-            .style("display", "none")
+        // var tooltip = d3Container
+        //     .append("div")
+        //     .attr("class", "d3-tip e")
+        //     .style("display", "none")
 
         // Format date
         var format = d3.time.format("%m/%d/%y %H:%M");
@@ -94,13 +94,13 @@ $(function() {
         // ------------------------------
 
         // Horizontal
-        var x = d3.time.scale().range([0, width]);
+        // var x = d3.time.scale().range([0, width]);
 
         // Vertical
-        var y = d3.scale.linear().range([height, 0]);
+        // var y = d3.scale.linear().range([height, 0]);
 
         // Colors
-        var z = d3.scale.ordinal().range(colorrange);
+        // var z = d3.scale.ordinal().range(colorrange);
 
 
 
@@ -414,32 +414,32 @@ $(function() {
 
             // Append events to the chart container
             // ------------------------------
-
-            d3Container
-                .on("mousemove", function (d, i) {
-                    mouse = d3.mouse(this);
-                    mousex = mouse[0];
-                    mousey = mouse[1];
-
-                    // Display hover line
-                        //.style("opacity", 1);
-
-
-                    // Move tooltip vertically
-                    tooltip.style("top", (mousey - ($('.d3-tip').outerHeight() / 2)) - 2 + "px") // Half tooltip height - half arrow width
-
-                    // Move tooltip horizontally
-                    if(mousex >= ($(element).outerWidth() - $('.d3-tip').outerWidth() - margin.right - (tooltipOffset * 2))) {
-                        tooltip
-                            .style("left", (mousex - $('.d3-tip').outerWidth() - tooltipOffset) + "px") // Change tooltip direction from right to left to keep it inside graph area
-                            .attr("class", "d3-tip w");
-                    }
-                    else {
-                        tooltip
-                            .style("left", (mousex + tooltipOffset) + "px" )
-                            .attr("class", "d3-tip e");
-                    }
-                });
+            //
+            // d3Container
+            //     .on("mousemove", function (d, i) {
+            //         mouse = d3.mouse(this);
+            //         mousex = mouse[0];
+            //         mousey = mouse[1];
+            //
+            //         // Display hover line
+            //             //.style("opacity", 1);
+            //
+            //
+            //         // Move tooltip vertically
+            //         tooltip.style("top", (mousey - ($('.d3-tip').outerHeight() / 2)) - 2 + "px") // Half tooltip height - half arrow width
+            //
+            //         // Move tooltip horizontally
+            //         if(mousex >= ($(element).outerWidth() - $('.d3-tip').outerWidth() - margin.right - (tooltipOffset * 2))) {
+            //             tooltip
+            //                 .style("left", (mousex - $('.d3-tip').outerWidth() - tooltipOffset) + "px") // Change tooltip direction from right to left to keep it inside graph area
+            //                 .attr("class", "d3-tip w");
+            //         }
+            //         else {
+            //             tooltip
+            //                 .style("left", (mousex + tooltipOffset) + "px" )
+            //                 .attr("class", "d3-tip e");
+            //         }
+            //     });
         });
 
 
@@ -448,52 +448,52 @@ $(function() {
         // ------------------------------
 
         // Call function on window resize
-        $(window).on('resize', resizeStream);
+        // $(window).on('resize', resizeStream);
 
         // Call function on sidebar width change
-        $(document).on('click', '.sidebar-control', resizeStream);
+        // $(document).on('click', '.sidebar-control', resizeStream);
 
         // Resize function
         // 
         // Since D3 doesn't support SVG resize by default,
         // we need to manually specify parts of the graph that need to 
         // be updated on window resize
-        function resizeStream() {
-
-            // Layout
-            // -------------------------
-
-            // Define width
-            width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right;
-
-            // Main svg width
-            container.attr("width", width + margin.left + margin.right);
-
-            // Width of appended group
-            svg.attr("width", width + margin.left + margin.right);
-
-            // Horizontal range
-            x.range([0, width]);
-
-
-            // Chart elements
-            // -------------------------
-
-            // Horizontal axis
-            svg.selectAll('.d3-axis-horizontal').call(xAxis);
-
-            // Horizontal axis subticks
-            svg.selectAll('.d3-axis-subticks').attr("x1", x).attr("x2", x);
-
-            // Grid lines width
-            svg.selectAll(".d3-grid-dashed").call(gridAxis.tickSize(-width, 0, 0))
-
-            // Right vertical axis
-            svg.selectAll(".d3-axis-right").attr("transform", "translate(" + width + ", 0)");
-
-            // Area paths
-            svg.selectAll('.streamgraph-layer').attr("d", function(d) { return area(d.values); });
-        }
+        // function resizeStream() {
+        //
+        //     // Layout
+        //     // -------------------------
+        //
+        //     // Define width
+        //     width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right;
+        //
+        //     // Main svg width
+        //     container.attr("width", width + margin.left + margin.right);
+        //
+        //     // Width of appended group
+        //     svg.attr("width", width + margin.left + margin.right);
+        //
+        //     // Horizontal range
+        //     x.range([0, width]);
+        //
+        //
+        //     // Chart elements
+        //     // -------------------------
+        //
+        //     // Horizontal axis
+        //     svg.selectAll('.d3-axis-horizontal').call(xAxis);
+        //
+        //     // Horizontal axis subticks
+        //     svg.selectAll('.d3-axis-subticks').attr("x1", x).attr("x2", x);
+        //
+        //     // Grid lines width
+        //     svg.selectAll(".d3-grid-dashed").call(gridAxis.tickSize(-width, 0, 0))
+        //
+        //     // Right vertical axis
+        //     svg.selectAll(".d3-axis-right").attr("transform", "translate(" + width + ", 0)");
+        //
+        //     // Area paths
+        //     svg.selectAll('.streamgraph-layer').attr("d", function(d) { return area(d.values); });
+        // }
     }
 
 

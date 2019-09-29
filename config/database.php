@@ -53,6 +53,18 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+        # Our secondary database connection
+        'mysql2' => array(
+            'driver'    => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database'  => '123job',
+            'username'  => 'root',
+            'password'  => 'root',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 
         'pgsql' => [
             'driver' => 'pgsql',
