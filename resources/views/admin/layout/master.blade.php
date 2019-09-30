@@ -56,6 +56,6 @@
 
     </div>
     <!-- /page container -->
-
+     @yield('script')
     </body>
 </html>

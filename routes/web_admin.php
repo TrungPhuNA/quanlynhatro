@@ -21,6 +21,7 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin','middleware'=>'adminmiddl
         Route::post('update/{id}','AdminMotelController@update');
         Route::get('delete/{id}','AdminMotelController@delete')->name('admin.get.motel.delete');
         Route::get('action/{type}/{id}','AdminMotelController@action')->name('admin.get.motel.action');
+        Route::get('location','AdminMotelController@getLocationByParent')->name('ajax_admin.get.location.by_parent');
     });
 });
 

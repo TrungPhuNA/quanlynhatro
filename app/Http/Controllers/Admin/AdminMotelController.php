@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequestMotel;
+use App\Models\Location;
 use App\Models\Menu;
 use App\Models\Motel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 
 class AdminMotelController extends Controller
@@ -27,14 +28,23 @@ class AdminMotelController extends Controller
     public function create()
     {
         $menus = $this->getListMenus();
-        return view('admin.motel.create', compact('menus'));
+        $cities = Location::where('loc_level',Location::CITY)->select('loc_name','id')->get();
+
+        $viewData = [
+            'menus'  => $menus,
+            'cities' => $cities,
+        ];
+        return view('admin.motel.create', $viewData);
     }
 
     public function edit($id)
     {
+        $cities = Location::where('loc_level',Location::CITY)->select('loc_name','id')->get();
+
         $viewData = [
-            'menus' => $this->getListMenus(),
-            'motel' => Motel::findOrFail($id)
+            'menus'  => $this->getListMenus(),
+            'motel'  => Motel::findOrFail($id),
+            'cities' => $cities,
         ];
         return view('admin.motel.update', $viewData);
     }
@@ -54,7 +64,7 @@ class AdminMotelController extends Controller
     public function insertOrUpdate($request, $id = '')
     {
         $code = 200;
-        $data = $request->except('_token');
+        $data = $request->except('_token','album');
         $data['mt_slug'] = str_slug($request->mt_name);
         $motel = new Motel();
         if ($id)
@@ -99,6 +109,19 @@ class AdminMotelController extends Controller
     private function getListMenus()
     {
         return Menu::select('id','mn_name')->get();
+    }
+
+    public function getLocationByParent(Request $request)
+    {
+        $id = $request->get('id');
+        if ($id)
+        {
+            $locations = Location::where('loc_parent_id',$id)
+                ->select('id','loc_name')
+                ->get();
+
+            return response()->json(['data' => $locations]);
+        }
     }
 
 }

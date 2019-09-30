@@ -14,7 +14,7 @@
             </div>
             <div class="post-info clearfix">
                 <div class="title">
-                    <a class="post-link" style="color:#E13427;" href="{{ route('get.motel.detail',[$menu->mn_slug, $motel->mt_slug]) }}"
+                    <a class="post-link" style="color:#E13427;" href="{{ route('get.motel.detail',[$motel->menu->mn_slug, $motel->mt_slug]) }}"
                        alt="{{ $motel->mt_name }}">{{ $motel->mt_name }}</a>
                 </div>
                 <div class="price"><strong>{{ number_format($motel->mt_price,0,',','.') }}Tr/Tháng</strong></div>
